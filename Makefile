@@ -10,12 +10,10 @@ VERSION := $(shell git describe --tags --always --dirty)
 build:
 	mkdir -p $(BIN_DIR)
 	go build \
-		-ldflags "-X main.version=$(VERSION)" \
+		-ldflags "-X github.com/ajwalkiewicz/ggci/internal/app.version=$(VERSION)" \
 		-o $(BIN_PATH) \
 		$(CMD_PATH)
-
-run: $(CMD_PATH)/main.go
-	go run $(CMD_PATH)
+	@echo "Built $(APP_NAME) version $(VERSION) at $(BIN_PATH)"
 
 version:
 	@echo $(VERSION)

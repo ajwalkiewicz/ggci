@@ -113,7 +113,7 @@ func ParseArgs(args []string) (*options.Options, error) {
 	fs.BoolVar(&op.System, "System", false, "Show only system items")
 	fs.BoolVar(&op.Legacy, "Legacy", false, "Print output in Windows style")
 
-	showVersion := flag.Bool("Version", false, "print version and exit")
+	showVersion := fs.Bool("Version", false, "print version and exit")
 
 	// Help
 	help := fs.Bool("help", false, "print help message")
